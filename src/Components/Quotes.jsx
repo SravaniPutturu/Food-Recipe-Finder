@@ -1,0 +1,21 @@
+export const Quotes = [
+  "Cooking is at once child's play and adult joy. And cooking done with care is an act of love.",
+  "One cannot think well, love well, sleep well if one has not dined well.",
+  "Food, to me, is always about cooking and eating with those you love and care for.",
+  "People who love to eat are always the best people.",
+  "Food is not just eating energy. It's an experience.",
+  "The only thing I like better than talking about food is eating.",
+  "Food is like a legal drug. You can take 50 cents and walk into the store and buy a Twinkie and get high. And it's killing people.",
+  "Food for the body is not enough. There must be food for the soul.",
+  "I cook with wine, sometimes I even add it to the food.",
+  "There is no sincerer love than the love of food.",
+  "First we eat, then we do everything else.",
+  "Tell me what you eat, and I will tell you what you are.",
+  "Food is the most primitive form of comfort.",
+  "Good food is the foundation of genuine happiness.",
+  "Laughter is brightest in the place where the food is.",
+  "Cooking is like love. It should be entered into with abandon or not at all.",
+  "Food is memories.",
+  "Everything you see I owe to spaghetti.",
+  "Food is an important part of a balanced diet."
+];
