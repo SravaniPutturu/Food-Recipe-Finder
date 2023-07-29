@@ -2,16 +2,19 @@ import './App.css';
 import Meal from './Components/Meal';
 import { Routes, Route } from 'react-router-dom'
 import RecipeInfo from './Components/RecipeInfo';
+import WishList from './Components/WishList';
+import Navbar from './Components/Navbar';
 
 
 function App() {
-  localStorage.setItem('list',[]);
+ 
   return (
    <>
-    {/* <Meal/> */}
+    <Navbar/>
     <Routes>
     <Route path='/' element={<Meal/>} />
     <Route path='/:MealId' element={<RecipeInfo/>}></Route>
+    <Route path='/wishlist' element={<WishList/>}/>
     </Routes>
    </>
   );

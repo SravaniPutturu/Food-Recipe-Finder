@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {BiSolidShare} from 'react-icons/bi'
-// import MealItem from './MealItem';
 
 
 let vId = "";
@@ -31,7 +30,7 @@ const RecipeInfo = () => {
                     
                     <img src={item.strMealThumb} alt="" />
                     <div onClick={()=>{window.history.back();}}>
-                    <BiSolidShare style={{color:'white',fontSize:'40px',position:'fixed',top:'0',left:'0',zIndex:'1',margin:'10px'}} />
+                    <BiSolidShare style={{color:'white',fontSize:'40px',position:'fixed',top:'70px',left:'0',zIndex:'1',margin:'10px'}} />
                     </div>  
                     <div className="inner-content">
                         <h1>{item.strMeal}</h1>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -33,26 +35,20 @@ code {
   font-weight: 700;
   letter-spacing: 1px;
   padding-top: 2rem;
-  margin: 1rem;
+  margin:3rem 2rem 1rem 2rem;
 }
 
 .search-bar{
-  margin: 1rem 0;
-  width: 400px;
+  margin: .5rem 0;
+  width: 70%;
   height: 35px;
   border: none;
   outline: none;
   border-radius: 1rem;
   padding: 0.3rem 1rem;
+  color: white;
 }
 
-.container{
-  width: 80%;
-  margin: 25px auto;
-  display: grid;
-  grid-template-columns: repeat((auto,minmax(150px,1fr)));
-  grid-gap:5rem;
-}
 .card{
   width: 100%;
   height: 100%;
@@ -68,25 +64,26 @@ img{
 
 .indexContainer{
   width: 100%;
-  gap: 3rem;
+  /* gap: 3rem; */
   display: grid;
-  grid-template-columns: repeat(13,1fr);
+  grid-template-columns: repeat(26,1fr);
   position: relative;
   top : 300px;
+  background: black;
+
 }
 .item{
   border-radius: 50%;
-  /* background-color: rgb(129, 129, 129); */
-  background-color: gray;
-  /* padding: 5px; */
-  color: black;
+  color: white;
+  font-size: 13px;
 }
 
 .recipeContainer{
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
   grid-gap:1rem;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .content img{
@@ -102,7 +99,7 @@ img{
   background-color: white;
   color: black;
   text-align: center;
-  box-shadow: 0 5px 5px black;
+  box-shadow: 0 5px 5px rgb(32, 29, 29);
 }
 
 .recipe-details{
@@ -133,4 +130,23 @@ iframe{
 .video{
   width: 80%;
   margin: 3rem auto;
+}
+
+
+input{
+  padding: 20px;
+  outline: none;
+  background-color:black;
+  border-radius: 20px 0 0 20px;
+}
+
+.copy{
+  padding: 20px;
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+.hide-footer{
+  transform: translateY(100%);
 }

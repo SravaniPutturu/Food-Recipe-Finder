@@ -2,26 +2,39 @@
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import { FaShare } from 'react-icons/fa';
+import ShareModal from './ShareModal';
+import { useState } from 'react';
+
 
 const MealItem = ({ data }) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleWishlist = (e, id) => {
-    e.stopPropagation(); // Prevent the card click event from being triggered
-    let list = []; // Initialize list as an empty array
+  const [showShareModal, setShowShareModal] = useState(false);
 
-    try {
-      const storedData = localStorage.getItem('list');
-      if (storedData) {
-        list = JSON.parse(storedData);
-      }
-    } catch (error) {
-      console.error('Error parsing local storage data:', error);
-    }
-    
-    list.push(id); // Add the new id to the list
-    localStorage.setItem('list', JSON.stringify(list)); // Save the updated list to local storage
+
+  const isItemInWishlist = (itemId) => {
+    const wishlistJSON = localStorage.getItem('list');
+    const wishlist = wishlistJSON ? JSON.parse(wishlistJSON) : [];
+    return wishlist.some((item) => item.idMeal === itemId);
   };
+  
+
+  const handleWishlist = (e, item) => {
+    e.stopPropagation();
+    const wishlist = JSON.parse(localStorage.getItem('list')) || [];
+
+    if (isItemInWishlist(item.idMeal)) {
+      // If the item is already in the wishlist, remove it
+      const updatedWishlist = wishlist.filter((storedItem) => storedItem.idMeal !== item.idMeal);
+      localStorage.setItem('list', JSON.stringify(updatedWishlist));
+    } else {
+      // If the item is not in the wishlist, add it
+      wishlist.push(item);
+      localStorage.setItem('list', JSON.stringify(wishlist));
+    }
+  };
+
+
 
   return (
     <div className='recipeContainer'>
@@ -38,26 +51,30 @@ const MealItem = ({ data }) => {
               >
                 <div style={{ position: 'relative' }}>
                   <img src={item.strMealThumb} alt="" />
-                  <div onClick={(e) => handleWishlist(e, item.idMeal)}>
-                    <FaHeart
-                      style={{
-                        color: 'tomato',
-                        fontSize: '20px',
-                        position: 'absolute',
-                        top: '5px',
-                        right: '30px',
-                      }}
-                    />
-                  </div>
-                  <FaShare
+                  <FaHeart
                     style={{
-                      color: 'rgb(32, 33, 36)',
+                      color: isItemInWishlist(item.idMeal) ? 'red' : 'white',
+                      fontSize: '20px',
+                      position: 'absolute',
+                      top: '5px',
+                      right: '30px',
+                    }}
+                    onClick={(e) => handleWishlist(e, item)}
+                  />
+                  <FaShare
+                    onClick={(e) => {e.stopPropagation(); setShowShareModal(true); }} // Set showShareModal to true when the share icon is clicked
+
+                    style={{
+                      color:'black',
                       fontSize: '20px',
                       position: 'absolute',
                       top: '5px',
                       right: '5px',
                     }}
                   />
+                  <div style={{width:'100%',position:'fixed',top:'50%',left:'50%',transform:'translate(-50%,-50%)',color:'white'}}>
+                  <ShareModal onClick={(e)=>e.stopPropagation()}  item={item}  showShareModal={showShareModal} setShowShareModal={setShowShareModal}/>
+                  </div>
                 </div>
                 <h6 style={{ padding: '3px', textAlign: 'center' }}>{item.strMeal}</h6>
               </div>
