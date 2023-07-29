@@ -40,7 +40,7 @@ const MealItem = ({ data }) => {
     <div className='recipeContainer'>
       {!data
         ? "Not Found...."
-        : data.map((item, index) => {
+        : data.map((item) => {
             return (
               <div
                 className='card'

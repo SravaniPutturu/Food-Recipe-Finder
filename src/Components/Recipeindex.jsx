@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa';
-import { BsLinkedin } from 'react-icons/bs'
 
 
 const Recipeindex = ({ alphaIndex }) => {
@@ -46,7 +45,6 @@ const Recipeindex = ({ alphaIndex }) => {
                     </div>
                 })
             }
-            {/* <p style={{ position: 'a', top: '20px', left: '0' }}><BsLinkedin /></p> */}
             <p style={{ position: 'absolute', bottom: '0', right: '5px', fontFamily: 'Great Vibes' }}>Made with <FaHeart style={{ color: 'red' }} /> by  Sravani</p>
         </footer>
     )

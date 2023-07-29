@@ -56,7 +56,7 @@ const ShareModal = ({ item, showShareModal, setShowShareModal }) => {
               <button className='copy' onClick={(e) => handleCopy(e)}>Copy</button>:
               <button style={{color:'purple'}} className='copy'>Copied<FaCheck style={{fontSize:'12px'}}/></button>
               }
-              <button onClick={(e)=>e.stopPropagation()} style={{ borderRadius: '0 20px 20px 0' }} className='copy' onClick={handleCloseModal}>X</button>
+              <button style={{ borderRadius: '0 20px 20px 0' }} className='copy' onClick={handleCloseModal}>X</button>
             </div>
           ) : null
         }
